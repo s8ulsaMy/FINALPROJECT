@@ -58,7 +58,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="text-white h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden ">
+    <div className="text-white h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden pt-16">
       {/* Parallax Background Image */}
       <Parallax className="absolute top-0 left-0 w-full h-full" y={[-50, 50]}>
         <img
@@ -71,7 +71,7 @@ const Hero = () => {
       {/* Hero Section */}
       <div className="relative bg-gradient-to-b from-[#dcebfe] to-yellow-100 bg-opacity-50 p-6 rounded-lg shadow-md">
         <div className="relative z-10 text-center mb-12 text-black">
-          <h1 className="text-5xl font-extrabold hero-title mb-4 ">
+          <h1 className="text-5xl font-extrabold hero-title mb-4">
             Discover Your Perfect Trip with Globe Guru
           </h1>
           <p className="text-xl hero-description mb-3 font-semibold">

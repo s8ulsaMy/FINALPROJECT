@@ -15,12 +15,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import axios from "axios";
+
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [openDialog, setOpenDialog] = useState(false);
+
   useEffect(() => {
     console.log(user);
   }, []);
+
   const GetUserProfile = (tokenInfo) => {
     axios
       .get(
@@ -42,18 +45,20 @@ const Header = () => {
         console.error("Error fetching user profile:", error);
       });
   };
+
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => GetUserProfile(tokenResponse),
     onError: (error) => console.log(error),
   });
+
   return (
-    <header className="flex justify-between items-center px-8 py-4 shadow-md bg-white">
-      <div>
-        <img className="w-24 h-auto" src="/logo.png" alt="Logo" />
+    <header className="flex justify-between items-center px-8 py-4 bg-white h-16 fixed top-0 w-full z-50">
+      <div className="flex items-center">
+        <img className="w-33 h-20 shadow-none" src="/logo.png" alt="Logo" />
       </div>
       {user ? (
-        <div className="flex items-cetner gap-x-3">
-          <a href = "/my-trip">
+        <div className="flex items-center gap-x-3">
+          <a href="/my-trip">
             <Button variant="outline" className="rounded-full">
               My Trips
             </Button>
@@ -85,7 +90,7 @@ const Header = () => {
             <DialogTitle>Sign In</DialogTitle>
             <DialogDescription>
               <div className="flex flex-col items-center">
-                <img src="/logo.png" alt="Logo" className="w-20 mb-4" />
+                <img src="/logo.png" alt="Logo" className="w-32 h-32 mb-4" />
                 <span>Sign in with Google Authentication securely</span>
                 <Button onClick={login} className="w-full mt-5">
                   Sign in with Google
