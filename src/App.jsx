@@ -1,13 +1,24 @@
-import { useState } from "react";
-import Hero from "./components/custom/Hero";
+import React from 'react';
+import { ThemeProvider } from './context/ThemeContext';
+import Hero from './components/custom/Hero';
+import About from './components/custom/About';
+import Footer from './components/custom/Footer';
+import Navbar from './components/custom/Navbar';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="bg-[url('/bg.jpg')] bg-cover min-h-screen">
-      <Hero />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen">
+        <Navbar />
+        <section id="home">
+          <Hero />
+        </section>
+        <About />
+        <section id="contact">
+          <Footer />
+        </section>
+      </div>
+    </ThemeProvider>
   );
 }
 
